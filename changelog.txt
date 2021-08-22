@@ -1,0 +1,6 @@
+# neuronmd changelog
+
+## 22-28-2021
+Version 0.1.1 was released to add the project description in PyPI.
+
+Multiple releses for a single version: https://github.com/pypa/packaging-problems/issues/74#issuecomment-693987158

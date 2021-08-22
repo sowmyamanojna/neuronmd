@@ -1,6 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from neuronmd import HHNeuron, IzhNeuron, FHNNeuron
+plt.rcParams['font.serif'] = "Cambria"
+plt.rcParams['font.family'] = "serif"
 
 #######################################
 # Initialize a HH Neuron Class
