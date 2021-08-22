@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name='neuronmd',
-    version='0.1.1',
+    version='0.1.1.post1',
     description='Package for simulating spiking neuron models',
     long_description = long_description,
     long_description_content_type="text/markdown",
