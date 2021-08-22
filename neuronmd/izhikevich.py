@@ -21,11 +21,7 @@ class IzhNeuron():
         self.v = -65
         self.u = self.b * self.v
 
-    def tweak_params(self, params):
-        """
-        Function to set/change the values of 
-        different variables in the model. 
-        """
+    def change_params(self, params):
         for key in params:
             setattr(self, key, params[key])        
 

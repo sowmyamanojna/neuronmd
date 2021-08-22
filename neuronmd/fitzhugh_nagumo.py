@@ -11,6 +11,10 @@ class FHNNeuron():
         self.b = 0.1
         self.r = 0.1
 
+    def change_params(self, params):
+        for key in params:
+            setattr(self, key, params[key])       
+
     def f(self):
         return self.v*(self.a - self.v)*(self.v - 1)
 

@@ -23,7 +23,7 @@ class HHNeuron():
 
     def change_params(self, params):
         for key in params:
-            setattr(self, key, params[key])       
+            setattr(self, key, params[key])
 
     def simulate(self, t, I):
         self.t = t
