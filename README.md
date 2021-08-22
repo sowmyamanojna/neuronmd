@@ -50,7 +50,7 @@ hhneuron.animate(t, current_list=current_list, name="no_ylim")
 ```
 
 The results obtained from the above code:
-![](https://github.com/sowmyamanojna/neuronmd/blob/main/images/hh_1.gif)
+![](https://github.com/sowmyamanojna/neuronmd/raw/main/images/hh_1.gif)
 
 The default parameters used in the model are:
 ```python
@@ -91,7 +91,7 @@ izhneuron.animate(t, current_list=current_list, name="no_ylim")
 ```
 
 The results obtained from the above code:
-![](https://github.com/sowmyamanojna/neuronmd/blob/main/images/izh_1.gif)
+![](https://github.com/sowmyamanojna/neuronmd/raw/main/images/izh_1.gif)
 
 The default parameters used in the model are:
 ```python
@@ -127,7 +127,7 @@ fhnneuron.animate(t, current_list=current_list, name="no_ylim")
 ```
 
 The results obtained from the above code:
-![](https://github.com/sowmyamanojna/neuronmd/blob/main/images/fhn_1.gif)
+![](https://github.com/sowmyamanojna/neuronmd/raw/main/images/fhn_1.gif)
 
 The default parameters used in the model are:
 ```python
