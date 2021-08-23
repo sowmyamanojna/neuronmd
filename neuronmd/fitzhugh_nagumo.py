@@ -28,6 +28,9 @@ class FHNNeuron():
         self.v = v
         self.w = w
 
+        self.v_init = v
+        self.w_init = w
+
         self.t = t
         dt = t[1] - t[0]
         niter = len(t)
@@ -74,6 +77,7 @@ class FHNNeuron():
         if ylim != None:
             plt.ylim(ylim)
         plt.xlabel("Time (ms)")
+        plt.ylabel("Voltage")
         plt.title("Fitz-Hugh Nagumo Neuron; Voltage across Time; $I=$"+name)
         if save:
             fig_name = image_directory+"/fhn_"+name+"_v.png"
@@ -83,16 +87,16 @@ class FHNNeuron():
             plt.show()
         plt.close("all")
 
-    def animate(self, t, current_list, ylim=None, name="1", image_directory="images"):
+    def animate(self, v, w, t, current_list, ylim=None, name="1", image_directory="images"):
         try:
             os.mkdir(image_directory)
         except:
             pass
-        
+                
         images_arr = []
 
         for I in tqdm(current_list):
-            self.simulate(self.v, self.w, t, I)
+            self.simulate(v, w, t, I)
             self.plot(ylim=ylim, save=True, show=False)
 
             fig_name = image_directory+"/fhn_"+str(round(self.I[0],5))+"_v.png"

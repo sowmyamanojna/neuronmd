@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 class HHNeuron():
     def __init__(self):
         self.v = -65
+        self.vinit = -65
 
         self.gnamax = 1.20
         self.gkmax = 0.36
@@ -25,10 +26,13 @@ class HHNeuron():
         for key in params:
             setattr(self, key, params[key])
 
-    def simulate(self, t, I):
+    def simulate(self, t, I, reinit=True):
         self.t = t
         dt = t[1] - t[0]
         niter = len(t)
+
+        if reinit:
+            self.v = self.vinit
 
         self.vhist = []
         self.mhist = []
@@ -97,6 +101,7 @@ class HHNeuron():
         if ylim != None:
             plt.ylim(ylim)
         plt.xlabel("Time (ms)")
+        plt.ylabel("Voltage (mV)")
         plt.title("Hodgkin & Huxley Neuron; Voltage across Time; $I=$"+name)
         if save:
             fig_name = image_directory+"/hh_"+name+"_v.png"
@@ -106,6 +111,7 @@ class HHNeuron():
         plt.plot(self.t, self.mhist)
         plt.grid()
         plt.xlabel("Time (ms)")
+        plt.ylabel("$m(t)$")
         plt.title("Hodgkin & Huxley Neuron; $m$ across Time; $I=$"+name)
         if save:
             fig_name = image_directory+"/hh_"+name+"_m.png"
@@ -115,6 +121,7 @@ class HHNeuron():
         plt.plot(self.t, self.nhist)
         plt.grid()
         plt.xlabel("Time (ms)")
+        plt.ylabel("$n(t)$")
         plt.title("Hodgkin & Huxley Neuron; $n$ across Time; $I=$"+name)
         if save:
             fig_name = image_directory+"/hh_"+name+"_n.png"
@@ -124,6 +131,7 @@ class HHNeuron():
         plt.plot(self.t, self.hhist)
         plt.grid()
         plt.xlabel("Time (ms)")
+        plt.ylabel("$h(t)$")
         plt.title("Hodgkin & Huxley Neuron; $h$ across Time; $I=$"+name)
         if save:
             fig_name = image_directory+"/hh_"+name+"_h.png"

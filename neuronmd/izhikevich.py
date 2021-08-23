@@ -19,16 +19,21 @@ class IzhNeuron():
         self.d = 8
 
         self.v = -65
-        self.u = self.b * self.v
+        self.vinit = -65
+        self.u = self.b*self.v
 
     def change_params(self, params):
         for key in params:
             setattr(self, key, params[key])        
 
 
-    def simulate(self, t, I):
+    def simulate(self, t, I, reinit=True):
         self.dt = t[1] - t[0]
         self.t = t
+
+        if reinit:
+            self.v = self.vinit
+            self.u = self.b*self.v
 
         if type(I) not in [list, np.ndarray]:
             I = I*np.ones((len(t), ))
@@ -79,10 +84,10 @@ class IzhNeuron():
         if ylim != None:
             plt.ylim(ylim)
         plt.xlabel("Time (ms)")
+        plt.ylabel("Voltage (mV)")
         plt.title("Izhikevich Neuron; Voltage across Time; $I=$"+name)
         if save:
             fig_name = image_directory+"/izh_"+name+"_v.png"
-            print(fig_name)
             plt.savefig(fig_name)
 
         if show:
